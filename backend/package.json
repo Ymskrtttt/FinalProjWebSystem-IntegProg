@@ -1,0 +1,21 @@
+
+{
+  "homepage": "https://<your-github-username>.github.io/<your-repo-name>",
+  "name": "finals",
+  "version": "1.0.0",
+  "description": "MVC Express & MongoDB Backend for Mitsu Travel & Tours Reservation System",
+  "main": "server.js",
+  "scripts": {
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.1"
+    
+  }
+}
