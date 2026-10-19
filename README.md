@@ -1,118 +1,70 @@
-# Mitsu Travel & Tours — Reservation & Transaction Management System (MERN)
+# Getting Started with Create React App
 
-## 1. Project & Target Client Profile
-- **Project Title:** Travel & Tour Reservation Management System
-- **Target Client:** **Mitsu Travel & Tours** (Boutique Luxury Travel & Tour Agency specializing in curated 5-day and 7-day blueprints across Tokyo, Bali, and Singapore)
-- **Frontend Stack:** Create React App (`react-scripts`), React Router (`react-router-dom`), Axios (`axios`), Leaflet Maps
-- **Backend Stack:** Node.js, Express (`express`, `cors`), MongoDB & Mongoose (`mongoose`) following the **MVC (Models, Controllers, Routes)** pattern
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
----
+## Available Scripts
 
-## 2. Project Folder Structure (MVC + Create React App)
-```text
-Mitsu-Travel-MERN/
-├── backend/
-│   ├── models/
-│   │   ├── User.js                # Mongoose Schema for User Accounts & Roles
-│   │   └── Booking.js             # Mongoose Schema for Travel Bookings & Archive
-│   ├── controllers/
-│   │   ├── userController.js      # Isolated business logic (.find, .save, .findByIdAndUpdate)
-│   │   └── bookingController.js   # Transaction workflow & archive logic
-│   ├── routes/
-│   │   ├── userRoutes.js          # Express Router (/api/getUsers, /api/login, /api/register, etc.)
-│   │   └── bookingRoutes.js       # Express Router (/api/getBookings, /api/createBooking, etc.)
-│   ├── seedData.js                # Realistic presentation dataset (12 active users, 21 completed bookings)
-│   ├── seed.js                    # Database cleanup & seeder script
-│   ├── server.js                  # Express Server initialization, cors(), express.json(), mongoose.connect()
-│   └── package.json
-└── frontend/                      # Create React App (CRA)
-    ├── public/
-    │   └── index.html
-    ├── src/
-    │   ├── components/
-    │   │   └── Navbar.js
-    │   ├── data/
-    │   │   └── destinationsData.js
-    │   ├── pages/
-    │   │   ├── HomePage.js
-    │   │   ├── DestinationPage.js
-    │   │   ├── AuthPage.js
-    │   │   ├── ProfilePage.js
-    │   │   ├── TransactionsPage.js
-    │   │   ├── UserManagementPage.js
-    │   │   └── ArchivePage.js
-    │   ├── App.js
-    │   ├── App.css
-    │   └── index.js
-    └── package.json
-```
+In the project directory, you can run:
 
----
+### `npm start`
 
-## 3. How to Run the Project Locally
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Step 1: Start MongoDB & Backend Server
-Open a terminal in the `backend` folder:
-```bash
-cd backend
-npm install
-npm run seed
-npm start
-```
-- `npm run seed` cleans out any old test/dummy data (`deleteMany({})`) and populates **12 active user accounts** (2 Admins + 10 Clients), **2 archived users**, **21 Completed transactions**, **3 In-Progress workflow transactions**, and **2 Archived transactions**.
-- The Express server runs on `http://localhost:5000`.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Step 2: Start the Create React App (CRA) Frontend
-Open a second terminal in the `frontend` folder:
-```bash
-cd frontend
-npm install
-npm start
-```
-- Opens automatically at `http://localhost:3000`.
+### `npm test`
 
----
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## 4. Presentation Demo Accounts (Module 1, 2 & 5)
+### `npm run build`
 
-| Role | Full Name | Email | Password |
-| :--- | :--- | :--- | :--- |
-| **Admin** | Kenji Mitsu | `kenji.mitsu@gmail.com` | `mitsukumar` |
-| **Admin** | Sofia Reyes | `sofia.reyes@gmail.com` | `mitsukumar` |
-| **Client** | Marco Villanueva | `marco.villanueva@gmail.com` | `client123` |
-| **Client** | Camille Santos | `camille.santos@gmail.com` | `client123` |
-| **Client** | Rafael Mendoza | `rafael.mendoza@gmail.com` | `client123` |
-| **Client** | Bianca Lim | `bianca.lim@gmail.com` | `client123` |
-| **Client** | Daniel Soriano | `daniel.soriano@gmail.com` | `client123` |
-| **Client** | Patricia Chua | `patricia.chua@gmail.com` | `client123` |
-| **Client** | Gabriel Bautista | `gabriel.bautista@gmail.com` | `client123` |
-| **Client** | Angela Dela Cruz | `angela.delacruz@gmail.com` | `client123` |
-| **Client** | Miguel Tan | `miguel.tan@gmail.com` | `client123` |
-| **Client** | Claire Navarro | `claire.navarro@gmail.com` | `client123` |
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
----
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## 5. How to Upload This Project to Your GitHub Repository
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Option A: Using Git in Terminal / VS Code (Recommended)
-1. Unzip `Mitsu-Travel-MERN.zip` into your local repository folder.
-2. Open your terminal inside that folder and run:
-```bash
-git add .
-git commit -m "Upgrade Mitsu Travel & Tours to full-stack CRA + Express MVC MongoDB app"
-git push origin main
-```
+### `npm run eject`
 
-### Option B: Uploading via the GitHub Website
-1. Unzip `Mitsu-Travel-MERN.zip` on your computer.
-2. Open your repository on GitHub.com and click **Add file > Upload files**.
-3. Drag and drop the `backend/`, `frontend/`, `.gitignore`, and `README.md` files into the browser window.
-4. Click **Commit changes**.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
----
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## 6. Roles and Permissions
-- **Client:** registers with a Gmail address (new accounts are always clients), books trips on the destination pages, and sees only their own bookings on **My Bookings**.
-- **Admin:** sees every booking, can Confirm / Complete / Archive transactions, and can open the **Users** and **Archive** pages. Only an admin can create another admin or change a role.
-- The app starts logged out. Clients who open `/users` or `/archive` see a "For Admins Only" message.
-- Password recovery and the security question were removed.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

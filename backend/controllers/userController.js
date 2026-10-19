@@ -4,7 +4,7 @@
 
 const UserModel = require('../models/User');
 
-// 1. Get all active users (Admin User Management)
+//  Get all active users (Admin User Management)
 const getUsers = async (req, res) => {
   try {
     const users = await UserModel.find({ isArchived: false }).sort({ createdAt: -1 });
@@ -14,7 +14,7 @@ const getUsers = async (req, res) => {
   }
 };
 
-// 2. Get all archived users (Archive Module)
+// Get all archived users (Archive Module)
 const getArchivedUsers = async (req, res) => {
   try {
     const archivedUsers = await UserModel.find({ isArchived: true }).sort({ createdAt: -1 });
@@ -24,14 +24,14 @@ const getArchivedUsers = async (req, res) => {
   }
 };
 
-// Helper: is this id the id of an admin account?
+// Helper is this id the id of an admin account?
 const isAdminId = async (id) => {
   if (!id) return false;
   const admin = await UserModel.findOne({ _id: id, role: 'admin' });
   return !!admin;
 };
 
-// 3. Register a new user account (Account Management / Admin Add User)
+// . Register a new user account (Account Management / Admin Add User)
 // New accounts are always "client". Only an admin (sending adminId) can create an admin account.
 const registerUser = async (req, res) => {
   try {
@@ -74,7 +74,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-// 4. User Login (Account Management)
+//  User Login (Account Management)
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -94,7 +94,7 @@ const loginUser = async (req, res) => {
   }
 };
 
-// 6. Update User Profile or Role (Profile & Admin User Management)
+//  Update User Profile or Role (Profile & Admin User Management)
 // Changing a role needs adminId of an admin account. Email and archive status cannot be changed here.
 const updateUser = async (req, res) => {
   try {
@@ -112,7 +112,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-// 7. Archive User (Archive Module)
+//  Archive User (Archive Module)
 const archiveUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -127,7 +127,7 @@ const archiveUser = async (req, res) => {
   }
 };
 
-// 8. Restore Archived User (Archive Module)
+//  Restore Archived User (Archive Module)
 const restoreUser = async (req, res) => {
   try {
     const { id } = req.params;
